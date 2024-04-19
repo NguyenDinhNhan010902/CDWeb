@@ -1,5 +1,5 @@
 import './style.css'
-import img from '../../../image/aaa.jpg'
+import logo from '../../../image/logo3.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
@@ -7,7 +7,7 @@ function Header(){
     return <header className="container">
         <div className="inner">
             <div className="logo">
-                <img src={img}/>
+                <img src={logo}/>
             </div>
             <div className="seach">
                 <input placeholder="Tìm Kiếm Tin Tức" spellCheck="false"/>
