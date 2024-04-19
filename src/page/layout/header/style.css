@@ -1,0 +1,81 @@
+.container{
+    /*background-color: green;*/
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.inner{
+    width: 100%;
+    height:100%;
+    max-width: 1350px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+@media only screen and (max-width: 768px) {
+    .seach {
+        width: 100%;
+    }
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    height: 65px;
+    weight: 65px;
+}
+.seach{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 361px;
+    height: 46px;
+    padding-left:  10px;
+    background-color: #DDDDDD;
+    border-radius: 18px;
+}
+.seach input{
+    flex: 1;
+    height: 100%;
+    color: black;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+.clear{
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+.seach-btn{
+    width: 52px;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-radius: 18px;
+
+}
+.seach-btn:hover{
+    cursor: pointer;
+    background-color: Gray;
+}
+.seach-btn::after{
+    content: "";
+    position: absolute;
+    top: 9px;
+    right: 45px;
+    width: 1px;
+    height: 28px;
+    background-color: black;
+}
+.status{
+    display: flex;
+    align-items: center;
+
+}
