@@ -1,4 +1,4 @@
-.container{
+.containerHeader{
     /*background-color: green;*/
     height: 80px;
     display: flex;
@@ -78,4 +78,20 @@
     display: flex;
     align-items: center;
 
+}
+.city{
+    margin: 10px;
+
+}
+.city h5{
+    font-size: 15px;
+    font-family: Arial;
+}
+.nhietdo{
+    margin: 10px;
+}
+.thanh{
+    width: 1px;
+    height: 40px;
+    background-color: black;
 }
