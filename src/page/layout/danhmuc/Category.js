@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import $ from 'jquery'; // Import jQuery library;
+import BASE_URL from '../../../database/Config';
 import Nav from 'react-bootstrap/Nav';
 import './style.css';
 
 function Category() {
     const [danhMuc, setDanhMuc] = useState([]);
-
     useEffect(() => {
-        axios.get('http://localhost:5000/danhmuc')
-            .then(response => {
-                setDanhMuc(response.data);
-            })
-            .catch(error => {
+        // Fetch danh muc data using jQuery and Ajax
+        $.ajax({
+            url: `${BASE_URL}/danhmuc`,
+            type: 'GET',
+            success: function(response) {
+                setDanhMuc(response);
+            },
+            error: function(error) {
                 console.error('Error fetching danh muc: ', error);
-            });
+            }
+        });
     }, []);
 
     const renderSubMenu = (submenus) => {

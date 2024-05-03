@@ -2,8 +2,10 @@ const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
 
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+const path = require('path');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -52,6 +54,12 @@ app.get('/danhmuc', (req, res) => {
             });
             res.json(results);
         });
+    });
+});
+app.get('/detail', (req, res) => {
+    connection.query('SELECT * FROM detail', (error, results, fields) => {
+        if (error) throw error;
+        res.send(results);
     });
 });
 
