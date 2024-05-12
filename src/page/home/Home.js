@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 
 function Home() {
     const [data, setData] = useState([]);
+    const detailPath = "/detail"
     useEffect(() => {
         $.ajax({
             url: `${BASE_URL}/detail`, // Sử dụng ký tự backtick và `${}` để sử dụng biến BASE_URL
@@ -25,11 +26,11 @@ function Home() {
             <div className="left">
                 {data.map(item => (
                     <div key={item.id}>
-                        <Link to="/path">
-                            <img src={item.img} alt="Logo"/>
+                        <Link to={detailPath}>
+                            <img src={item.img} alt="Logo" className="imgLeft"/>
                         </Link>
-                        <Link to="/path">
-                            <h3>{item.content}</h3>
+                        <Link to={detailPath}>
+                            <h3 className="titelLeft">{item.content}</h3>
                         </Link>
                     </div>
                 ))}
@@ -37,24 +38,28 @@ function Home() {
             <div className="center">
                 {data.map(item => (
                     <div key={item.id}>
-                        <Link to="/path">
-                            <img src={item.img} alt="Logo"/>
+                        <Link to={detailPath}>
+                            <img src={item.img} alt="Logo" className="imgCenter"/>
                         </Link>
-                        <Link to="/path">
-                            <h3>{item.content}</h3>
+                        <Link to={detailPath}>
+                            <h3 className="titelCenter">{item.content}</h3>
                         </Link>
+                        <p>noi dung</p>
                     </div>
+
                 ))}
+
             </div>
             <div className="right">
                 {data.map(item => (
-                    <div key={item.id}>
-                        <Link to="/path">
-                            <img src={item.img} alt="Logo"/>
-                        </Link>
-                        <Link to="/path">
+                    <div className="rightItem" key={item.id}>
+                        <Link to="{detailPath}">
                             <h3>{item.content}</h3>
                         </Link>
+                        <Link to={detailPath}>
+                            <img src={item.img} alt="Logo"/>
+                        </Link>
+
                     </div>
                 ))}
             </div>

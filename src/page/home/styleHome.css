@@ -40,14 +40,30 @@
     width: 25%;
     height: 100%;
     background-color: green;
+
 }
 .right img{
     height: 100px;
     max-width : 100%;
+}
+.rightItem{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
 }
 .khuvuc{
     width: 100%;
     height: 8px;
     background-color: #DDDDDD;
     margin-top: 20px;
+}
+.imgCenter{
+    margin:10px 0;
+}
+.imgLeft{
+    margin:10px 0;
+}
+.titelLeft{
+    margin-bottom: 50px;
 }
