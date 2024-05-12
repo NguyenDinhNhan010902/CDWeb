@@ -1,4 +1,7 @@
+import "./detail.css"
 function Detail(){
-    return <h2> Detail </h2>
+    return <div className="containerDetail">
+
+    </div>
 }
 export default Detail;
