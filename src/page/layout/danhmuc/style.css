@@ -1,6 +1,7 @@
 .container {
     width: 1350px;
     /*background-color: aqua;*/
+    /*height: 20px;*/
 }
 
 /* Tùy chỉnh dropdown menu */
@@ -36,6 +37,36 @@
 }
 
 .navbar-nav .nav-item {
+
     margin: 10px;
+}
+.justify-content-center .custom-link {
+    color: black;
+    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    position: relative; /* Để có thể thêm dấu gạch chân tương đối */
+}
+
+.custom-link::after {
+    content: ''; /* Tạo nội dung giả */
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    left: 0; /* Đặt vị trí bắt đầu từ bên trái */
+    bottom: -3px; /* Đặt vị trí từ phía dưới của phần tử */
+    width: 100%; /* Chiều rộng bằng với phần tử */
+    height: 2px; /* Chiều cao của dấu gạch chân */
+    background-color: black; /* Màu của dấu gạch chân */
+    transition: bottom 0.3s ease; /* Hiệu ứng chuyển động */
+    opacity: 0; /* Ban đầu ẩn dấu gạch chân */
+}
+
+.custom-link:hover::after {
+    bottom: 0; /* Hiển thị dấu gạch chân khi di chuột vào */
+    opacity: 1; /* Hiển thị dấu gạch chân */
+}
+.custom-link:focus {
+    color: blue; /* Màu khi phần tử được focus */
+}
+
+.custom-link:active {
+    color: red; /* Màu chữ khi phần tử được focus, hover hoặc được nhấn */
 }
 
