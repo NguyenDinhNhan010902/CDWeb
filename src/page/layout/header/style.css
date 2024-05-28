@@ -1,44 +1,162 @@
-.containerHeader{
-    /*background-color: green;*/
+/*.containerHeader{*/
+/*    !*background-color: green;*!*/
+/*    height: 80px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.inner{*/
+/*    width: 100%;*/
+/*    height:100%;*/
+/*    max-width: 1350px;*/
+/*    background-color: aliceblue;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    padding: 0 20px;*/
+/*}*/
+/*@media only screen and (max-width: 768px) {*/
+/*    .seach {*/
+/*        width: 100%;*/
+/*    }*/
+/*}*/
+/*.logo{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+/*.logo img{*/
+/*    height: 65px;*/
+/*    weight: 65px;*/
+/*}*/
+/*.seach{*/
+/*    position: relative;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    width: 361px;*/
+/*    height: 46px;*/
+/*    padding-left:  10px;*/
+/*    background-color: #DDDDDD;*/
+/*    border-radius: 18px;*/
+/*}*/
+/*.seach input{*/
+/*    flex: 1;*/
+/*    height: 100%;*/
+/*    color: black;*/
+/*    font-size: 1rem;*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    background-color: transparent;*/
+/*}*/
+/*.clear{*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    background-color: transparent;*/
+/*}*/
+/*.seach-btn{*/
+/*    width: 52px;*/
+/*    height: 100%;*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    background-color: transparent;*/
+/*    border-radius: 18px;*/
+
+/*}*/
+/*.seach-btn:hover{*/
+/*    cursor: pointer;*/
+/*    background-color: Gray;*/
+/*}*/
+/*.seach-btn::after{*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 9px;*/
+/*    right: 45px;*/
+/*    width: 1px;*/
+/*    height: 28px;*/
+/*    background-color: black;*/
+/*}*/
+/*.status{*/
+/*    display: flex;*/
+/*    align-items: center;*/
+
+/*}*/
+/*.city{*/
+/*    margin: 10px;*/
+
+/*}*/
+/*.city h5{*/
+/*    font-size: 15px;*/
+/*    font-family: Arial;*/
+/*}*/
+/*.nhietdo{*/
+/*    margin: 10px;*/
+/*}*/
+/*.thanh{*/
+/*    width: 1px;*/
+/*    height: 40px;*/
+/*    background-color: black;*/
+/*}*/.containerHeader {
     height: 80px;
     display: flex;
     justify-content: center;
 }
 
-.inner{
+.inner {
     width: 100%;
-    height:100%;
+    height: 100%;
     max-width: 1350px;
     background-color: aliceblue;
-    display: flex;
+    display: grid;
+    grid-template-areas: "logo seach status";
+    grid-template-columns: auto auto auto ;
     align-items: center;
-    justify-content: space-between;
     padding: 0 20px;
+    justify-content: space-between;
 }
+
 @media only screen and (max-width: 768px) {
+    .inner {
+        grid-template-areas:
+            "logo status"
+            "seach seach";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        justify-items: center;
+        padding: 10px;
+    }
+
     .seach {
         width: 100%;
+        grid-column: span 2;
     }
 }
-.logo{
+
+.logo {
+    grid-area: logo;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
-.logo img{
+
+.logo img {
     height: 65px;
-    weight: 65px;
+    width: 150px;
 }
-.seach{
+
+.seach {
+    grid-area: seach;
     position: relative;
     display: flex;
     align-items: center;
-    width: 361px;
+    width: 100%; /* Adjust to fill available space */
+    max-width: 361px;
     height: 46px;
-    padding-left:  10px;
-    background-color: #DDDDDD;
+    padding-left: 10px;
+    background-color: #dddddd;
     border-radius: 18px;
+    justify-content: space-between;
 }
-.seach input{
+
+.seach input {
     flex: 1;
     height: 100%;
     color: black;
@@ -47,25 +165,28 @@
     border: none;
     background-color: transparent;
 }
-.clear{
+
+.clear {
     outline: none;
     border: none;
     background-color: transparent;
 }
-.seach-btn{
+
+.seach-btn {
     width: 52px;
     height: 100%;
     outline: none;
     border: none;
     background-color: transparent;
     border-radius: 18px;
+}
 
-}
-.seach-btn:hover{
+.seach-btn:hover {
     cursor: pointer;
-    background-color: Gray;
+    background-color: gray;
 }
-.seach-btn::after{
+
+.seach-btn::after {
     content: "";
     position: absolute;
     top: 9px;
@@ -74,24 +195,35 @@
     height: 28px;
     background-color: black;
 }
-.status{
+
+.status {
+    grid-area: status;
     display: flex;
     align-items: center;
-
+    justify-content: center;
 }
-.city{
+
+.city {
     margin: 10px;
-
 }
-.city h5{
+
+.city h5 {
     font-size: 15px;
     font-family: Arial;
 }
-.nhietdo{
+
+.nhietdo {
     margin: 10px;
+
 }
-.thanh{
+
+.thanh {
     width: 1px;
     height: 40px;
     background-color: black;
+
 }
+
+
+
+

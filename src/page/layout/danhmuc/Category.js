@@ -6,6 +6,7 @@ import './style.css';
 
 function Category() {
     const [danhMuc, setDanhMuc] = useState([]);
+
     useEffect(() => {
         // Fetch danh muc data using jQuery and Ajax
         $.ajax({
@@ -19,7 +20,6 @@ function Category() {
             }
         });
     }, []);
-
     const renderSubMenu = (submenus) => {
         if (!Array.isArray(submenus) || submenus.length === 0) return null;
 
@@ -27,7 +27,7 @@ function Category() {
             <div className="dropdown-menu">
                 {submenus.map(submenu => (
                     <Nav.Item key={submenu.id}>
-                        <Nav.Link href="#">{submenu.name}</Nav.Link>
+                        <Nav.Link href="/detail">{submenu.name}</Nav.Link>
                     </Nav.Item>
                 ))}
             </div>
@@ -37,9 +37,11 @@ function Category() {
     return (
         <div className="container">
             <Nav className="justify-content-center">
-                {danhMuc.map(item => (
+                {danhMuc.map((item, index) => (
                     <Nav.Item key={item.id}>
-                        <Nav.Link eventKey="/detail">{item.name}</Nav.Link>
+                        <Nav.Link href="/detail" className="custom-link">
+                            {item.name}
+                        </Nav.Link>
                         {renderSubMenu(item.submenus)}
                     </Nav.Item>
                 ))}
