@@ -63,4 +63,21 @@ app.get('/detail', (req, res) => {
     });
 });
 
+app.get('/detail', (req, res) => {
+    connection.query('SELECT * FROM detail', (error, results, fields) => {
+        if (error) throw error;
+        res.send(results);
+    });
+});
+app.get('/seach', (req, res) => {
+    const searchTerm = req.query.q;
+    const query = `SELECT * FROM detail WHERE titel LIKE ?`; // Sửa 'titel' thành 'title'
+    connection.query(query, [`%${searchTerm}%`], (err, results) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.json(results);
+    });
+});
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
