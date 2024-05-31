@@ -27,7 +27,7 @@ function Category() {
             <div className="dropdown-menu">
                 {submenus.map(submenu => (
                     <Nav.Item key={submenu.id}>
-                        <Nav.Link href="/detail">{submenu.name}</Nav.Link>
+                        <Nav.Link href="/listcategory">{submenu.name}</Nav.Link>
                     </Nav.Item>
                 ))}
             </div>
@@ -39,7 +39,9 @@ function Category() {
             <Nav className="justify-content-center">
                 {danhMuc.map((item, index) => (
                     <Nav.Item key={item.id}>
-                        <Nav.Link href="/detail" className="custom-link">
+                        <Nav.Link
+                            href={item.id === 0 ? "/home" : "/listcategory"}
+                            className="custom-link">
                             {item.name}
                         </Nav.Link>
                         {renderSubMenu(item.submenus)}
