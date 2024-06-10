@@ -69,4 +69,7 @@
 .custom-link:active {
     color: red; /* Màu chữ khi phần tử được focus, hover hoặc được nhấn */
 }
+.justify-content-center{
+    background-color: white;
+}
 

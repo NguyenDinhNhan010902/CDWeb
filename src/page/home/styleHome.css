@@ -35,10 +35,11 @@
 .right{
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 30%;
+    /*align-items: center;*/
+    width: 25%;
     height: 100%;
     /*background-color: green;*/
+    /*justify-content: space-between;*/
 
 }
 .right img{
@@ -48,7 +49,6 @@
 .rightItem{
     width: 100%;
     display: flex;
-    justify-content: space-between;
     margin: 15px;
 }
 .khuvuc{
@@ -84,6 +84,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
+    font-size: 15px;
 }
 .imgRight{
     width: 500px;
@@ -202,5 +203,9 @@
     /*background-color: aqua;*/
     width: 70%;
 
+}
+.cardnext{
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 

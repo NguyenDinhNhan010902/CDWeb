@@ -1,0 +1,17 @@
+.containerLogin {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+
+ }
+.formLogin {
+    width: 50%;
+
+}
+.formLogin a{
+    text-decoration:none;
+}
+

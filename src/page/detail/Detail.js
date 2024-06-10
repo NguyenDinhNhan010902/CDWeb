@@ -4,58 +4,69 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './detail.css';
 import $ from "jquery";
-import BASE_URL from "../../database/Config"; // Make sure you have your CSS file
-import CommentSection from './comment/CommentSection';
+import BASE_URL from "../../database/Config"; // Đảm bảo bạn đã có tệp CSS của bạn
+import CommentSection from "./comment/CommentSection";
+
+import {useParams} from "react-router-dom";
+import TextToSpeech from "./texttospeed/TextToSpeech";
+import Image from "../img/Image";
+
 
 function Detail() {
     const [detail, setDetail] = useState([]);
+    const {id} = useParams();
 
     useEffect(() => {
         $.ajax({
-            url: `${BASE_URL}/detail`,
-            type: "GET",
-            success: function (response) {
+            url: `${BASE_URL}/detailes?id=${id}`, type: "GET", success: function (response) {
                 setDetail(response);
-            },
-            error: function (error) {
-                console.error("Error fetching detail: ", error);
+            }, error: function (error) {
+                console.error("Lỗi khi lấy chi tiết: ", error);
             },
         });
-    }, []);
+    }, [id]);
+
     return (
-        <Container className="text-center"> {/* Add text-center class here */}
-            <Row>
 
-                <Col>
-                    <Col className="d-flex justify-content-center"> {/* Center the content */}
-                        <div className="cate text-left"> {/* Ensure text-left class here */}
-                            <p>Xã Hội</p>
-                            <h2 className="article-title">Luật pháp "hậu Gateway" và sự tắc trách của người cầm lái</h2>
+        <Container className="text-center">
+            {detail.map((item) => (<Row key={item.id}>
+                    <Col>
+                        <Col className="d-flex justify-content-center"> {/* Căn giữa nội dung */}
+                            <div className="cate text-left"> {/* Đảm bảo có lớp text-left ở đây */}
+                                <div className="header">
+                                    <span>{item.name}</span>
+                                </div>
+                                <h2 className="article-title">{item.titel}</h2>
+                            </div>
+                        </Col>
+                        <div className="audio-player">
+                            <TextToSpeech
+                                text={`${item.content} ${item.contenta}${item.contentb}${item.contentc}${item.contentd}${item.contente}`}/>
                         </div>
+                        <p>{item.content}</p>
+                        <p>{item.contenta}</p>
+                        <Image
+                            // src="../img/no-image.png"
+                            src={item.img}
+                            alt="Trường mầm non" className="article-image"
+                        />
+                        <div>
+                            <p>{item.contentb}</p>
+                            <p>{item.contentc}</p>
+                            <p>{item.contentd}</p>
+                            <p>{item.contente}</p>
+                            <p>{item.contentb}</p>
+                            <p>{item.contentc}</p>
+                            <p>{item.contentd}</p>
+                            <p>{item.contente}</p>
+                        </div>
+                        <CommentSection></CommentSection>
                     </Col>
-                    <div className="audio-player">
-                        <audio controls>
-                            <source src="your-audio-source.mp3" type="audio/mpeg"/>
-                            Your browser does not support the audio element.
-                        </audio>
-                        <span>Nam miền Bắc</span>
-                    </div>
-                    <p>(Dân trí) - Sau vụ "em bé Gateway", quy định pháp luật về đưa đón học sinh đã được bổ sung để
-                        phòng ngừa bi kịch. Điều đáng buồn, bi kịch vẫn tái diễn.</p>
-                    <img
-                        src="https://cdnphoto.dantri.com.vn/V8cCQYSCBadiYxk9mwBSYSPu1p4=/zoom/240_160/2024/05/31/trumpafp-crop-1717109561820.jpeg"
-                        alt="Trường mầm non" className="article-image"/>
-                    {detail.slice(0, 2).map((item)=>(
-                    <p>
-                        {item.content}
-                    </p>
-                    ))}
-                </Col>
-                <CommentSection /> {/* Add CommentSection here */}
-
-            </Row>
+                </Row>))}
 
         </Container>
+
+
     );
 }
 
