@@ -42,17 +42,31 @@ h3 {
 p {
     font-size: 1rem;
     margin-bottom: 1rem;
-    text-align: center;
+    text-align: left;
+    font-size: 20px;
 }
-.text-center img{
+
+.text-center img {
     width: 50%;
-    height: 50%
+    height: 500px;
 }
-.cate{
+
+.cate {
     width: 50%;
 }
-.cate p{
+
+.cate p {
     margin: 20px;
     text-align: left;
+}
+
+.header {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+.header span {
+    font-size: smaller;
 }
 

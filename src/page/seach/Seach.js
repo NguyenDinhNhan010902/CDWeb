@@ -20,6 +20,7 @@ function Seach() {
         if (searchTerm) {
             $.ajax({
                 url: `${BASE_URL}/seach?q=${searchTerm}`,
+                // url: `http://localhost:8080/api/danhmucs/search?titel=${searchTerm}`,
                 method: 'GET',
                 success: (response) => {
                     setResults(response);
@@ -38,11 +39,11 @@ function Seach() {
                 {safeResults.map((item) => (
                     <Col key={item.id} xs={12} sm={6} md={4} lg={3} className="mb-4 d-flex justify-content-center">
                         <Card style={{ width: '18rem', textAlign: 'center' }}>
-                            <Link to="/detail">
+                            <Link to={`/detail/${item.id}`}>
                                 <Card.Img variant="top" src={item.img} />
                             </Link>
                             <Card.Body>
-                                <Link to="/detail" className="subTitle">
+                                <Link to={`/detail/${item.id}`} className="subTitle">
                                     <Card.Title className="subTitleCate">{item.titel}</Card.Title>
                                 </Link>
                                 <Card.Text className="truncate">

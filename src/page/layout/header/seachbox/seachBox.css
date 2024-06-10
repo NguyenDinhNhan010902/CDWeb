@@ -1,0 +1,68 @@
+.containerSeachBox {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.titleSeachBox:hover {
+    background-color: aquamarine; /* Màu nền khi di chuột vào */
+}
+
+.titleSeachBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff; /* Màu nền mặc định */
+    padding: 10px; /* Thêm padding cho đẹp */
+    border-radius: 5px; /* Bo tròn các góc */
+    transition: background-color 0.3s ease; /* Hiệu ứng màu nền mượt mà */
+
+}
+
+.titleSeachBox:hover {
+    background-color: #f0f0f0; /* Màu nền khi di chuột vào */
+}
+
+.titleSeachBox .acv {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.titleSeachBox p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease; /* Hiệu ứng màu chữ mượt mà */
+    text-decoration: none;
+}
+
+.titleSeachBox:hover p {
+    color: #007bff; /* Màu chữ khi di chuột vào */
+    /*color: #007bff; !* Màu chữ khi di chuột vào *!*/
+    font-size: 15px; /* Kích thước chữ tăng lên 1px khi di chuột vào */
+}
+.truncate {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+@media (max-width: 600px) {
+    .titleSeachBox .acv {
+        width: 40px;
+        height: 40px;
+    }
+
+    .titleSeachBox p {
+        font-size: 12px;
+    }
+}

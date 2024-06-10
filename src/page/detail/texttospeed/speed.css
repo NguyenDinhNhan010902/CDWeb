@@ -1,0 +1,39 @@
+.buttonVoi{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.play{
+    border-radius:5px ;
+    /*background: red;*/
+    padding: 0 20px;
+    margin: 0 20px;
+    border: 1px solid #212529;
+}
+.pause{
+    border-radius:5px ;
+    /*background: red;*/
+    padding: 0 20px;
+    margin: 0 20px;
+    border: 1px solid #212529;
+
+}
+.stop{
+    border-radius:5px ;
+    /*background: red;*/
+    padding: 0 20px;
+    margin: 0 20px;
+    border: 1px solid #212529;
+
+}
+.condition{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.Voice{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+
+}

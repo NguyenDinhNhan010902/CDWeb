@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import $ from 'jquery'; // Import jQuery library;
+import $ from 'jquery';
 import BASE_URL from '../../../database/Config';
 import Nav from 'react-bootstrap/Nav';
 import './style.css';
-
+import { Link } from 'react-router-dom';
 function Category() {
     const [danhMuc, setDanhMuc] = useState([]);
-
     useEffect(() => {
-        // Fetch danh muc data using jQuery and Ajax
         $.ajax({
             url: `${BASE_URL}/danhmuc`,
             type: 'GET',
@@ -22,25 +20,24 @@ function Category() {
     }, []);
     const renderSubMenu = (submenus) => {
         if (!Array.isArray(submenus) || submenus.length === 0) return null;
-
         return (
             <div className="dropdown-menu">
                 {submenus.map(submenu => (
                     <Nav.Item key={submenu.id}>
-                        <Nav.Link href="/listcategory">{submenu.name}</Nav.Link>
+                        <Nav.Link as={Link} to={`/listcategory/${submenu.paren_id}/${submenu.id}`}>{submenu.namecon}</Nav.Link>
                     </Nav.Item>
                 ))}
             </div>
         );
     };
-
     return (
         <div className="container">
             <Nav className="justify-content-center">
-                {danhMuc.map((item, index) => (
+                {danhMuc.map((item) => (
                     <Nav.Item key={item.id}>
                         <Nav.Link
-                            href={item.id === 0 ? "/home" : "/listcategory"}
+                            as={Link}
+                            to={item.id === 0 ? "/home" : `/listcategory/${item.id}`}
                             className="custom-link">
                             {item.name}
                         </Nav.Link>

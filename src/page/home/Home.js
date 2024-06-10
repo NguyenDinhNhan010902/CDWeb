@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Cart from "./components/Cart";
+import CartNext from "./components/CartNext";
 
 function Home() {
     const [data, setData] = useState([]);
-    const detailPath = "/detail";
 
     useEffect(() => {
         $.ajax({
@@ -32,10 +33,10 @@ function Home() {
                 <div className="left">
                     {leftData.map((item) => (
                         <div key={item.id}>
-                            <Link to={detailPath}>
+                            <Link to={`/detail/${item.id}`}>
                                 <img src={item.img} alt="Logo" className="imgLeft" />
                             </Link>
-                            <Link to={detailPath} className="titel">
+                            <Link to={`/detail/${item.id}`} className="titel">
                                 <h3 className="titelLeft">{item.titel}</h3>
                             </Link>
                         </div>
@@ -44,10 +45,10 @@ function Home() {
                 <div className="center">
                     {centerData.map((item) => (
                         <div key={item.id}>
-                            <Link to={detailPath}>
+                            <Link to={`/detail/${item.id}`}>
                                 <img src={item.img} alt="Logo" className="imgCenter" />
                             </Link>
-                            <Link to={detailPath} className="titel">
+                            <Link to={`/detail/${item.id}`} className="titel">
                                 <h3 className="titelCenter">{item.titel}</h3>
                             </Link>
                             <p className="truncate">{item.content}</p>
@@ -57,10 +58,10 @@ function Home() {
                 <div className="right">
                     {rightData.map((item) => (
                         <div className="rightItem" key={item.id}>
-                            <Link to={detailPath} className="titelRight">
+                            <Link to={`/detail/${item.id}`} className="titelRight">
                                 <h3>{item.titel}</h3>
                             </Link>
-                            <Link to={detailPath} className="titel">
+                            <Link to={`/detail/${item.id}`} className="titel">
                                 <img src={item.img} alt="Logo" className="imgRight"/>
                             </Link>
                         </div>
@@ -94,6 +95,11 @@ function Home() {
                     </Col>
                 </Row>
             </Container>
+            <Cart></Cart>
+            <div className="cardnext">
+            <CartNext ></CartNext>
+            </div>
+
         </div>
     );
 }
