@@ -15,10 +15,11 @@ import Image from "../img/Image";
 function Detail() {
     const [detail, setDetail] = useState([]);
     const {id} = useParams();
-
     useEffect(() => {
         $.ajax({
-            url: `${BASE_URL}/detailes?id=${id}`, type: "GET", success: function (response) {
+            url: `${BASE_URL}/detailes?id=${id}`,
+            type: "GET",
+            success: function (response) {
                 setDetail(response);
             }, error: function (error) {
                 console.error("Lỗi khi lấy chi tiết: ", error);
@@ -60,7 +61,7 @@ function Detail() {
                             <p>{item.contentd}</p>
                             <p>{item.contente}</p>
                         </div>
-                        <CommentSection></CommentSection>
+                        <CommentSection postId={id}></CommentSection>
                     </Col>
                 </Row>))}
 

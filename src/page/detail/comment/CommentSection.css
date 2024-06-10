@@ -55,3 +55,46 @@
     font-style: italic;
     color: #888;
 }
+.username-display {
+    margin-top: 20px;
+}
+
+/* Phần mỗi comment */
+.recomment {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Phần tên người dùng */
+.comment-user {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Phần nội dung comment */
+.comment-com {
+    font-size: 15px;
+    margin: 0;
+}
+
+/* Phần "Chưa có bình luận" */
+.username-display p.empty-comment {
+    font-style: italic;
+    color: #999;
+}
+.comment{
+    display: flex;
+}
+.comment p{
+    font-size: 15px;
+
+}
+.comment-time{
+    margin-left: 20px;
+}
+.thongbao{
+    color: blue;
+}

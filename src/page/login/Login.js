@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MDBContainer, MDBCol, MDBRow, MDBBtn, MDBIcon, MDBInput, MDBCheckbox } from 'mdb-react-ui-kit';
 import './login.css';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import {useLocation, useNavigate, } from "react-router-dom";
 import BASE_URL from '../../database/Config';
 import Images from "../img/InImage";
 
@@ -10,6 +10,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
@@ -20,8 +21,13 @@ function Login() {
             if (response.data.success) {
                 localStorage.setItem('isLoggedIn', true);
                 localStorage.setItem('user', JSON.stringify(response.data.user));
-                navigate('/home');
-                window.location.reload();
+                // navigate(-1);
+                window.history.go(-1);
+                // window.location.reload();
+
+
+
+
             } else {
                 alert(response.data.message);
             }
