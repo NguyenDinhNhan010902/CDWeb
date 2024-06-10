@@ -17,10 +17,10 @@ import BASE_URL from "../../../database/Config"; // optional
 function Header() {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [currentDay, setCurrentDay] = useState(getCurrentFormattedDate());
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Trạng thái đăng nhập
+    const [isLoggedIn,  setIsLoggedIn] = useState(false); // Trạng thái đăng nhập
     const [seachAcc, setSeachAcc] = useState([]);
     useEffect(() => {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        const isLoggedIn = localStorage.getItem('user');
         setIsLoggedIn(isLoggedIn);
         const timer = setInterval(() => {
             setCurrentDate(new Date());
@@ -29,11 +29,8 @@ function Header() {
         return () => clearInterval(timer);
     }, []);
     const handleLogout = () => {
-        // Xóa dữ liệu đăng nhập khỏi localStorage
         localStorage.removeItem('user');
-        // Cập nhật trạng thái đăng nhập thành false
         setIsLoggedIn(false);
-        // Hiển thị thông báo khi đăng xuất
         alert('Bạn đã đăng xuất.');
     };
     const formatDate = (date) => {
@@ -120,14 +117,28 @@ function Header() {
                     </div>
                     <span className="thanh"></span>
                     <div className="history">
-                        {isLoggedIn && (
-                            <Button variant="outline-primary" onClick={handleLogout} style={{marginLeft: '15px'}}>
-                                Logout
+                        {/*{isLoggedIn && (*/}
+                        {/*// <p> Lịch Sử Xem</p>*/}
+                        {/*)}*/}
+                        {/*{isLoggedIn && (*/}
+                        {/*    <Button variant="outline-primary" onClick={handleLogout} style={{marginLeft: '15px'}}>*/}
+                        {/*        Logout*/}
+                        {/*    </Button>*/}
+
+                        {/*)}*/}
+                        {/*{!isLoggedIn && (*/}
+                        {/*    <Button variant="outline-primary" onClick={OnclickLogin} style={{marginLeft: '15px'}}>*/}
+                        {/*        Login*/}
+                        {/*    </Button>*/}
+                        {/*)}*/}
+                        {!isLoggedIn&& (
+                            <Button variant="outline-primary" onClick={OnclickLogin} style={{marginLeft: '15px'}}>
+                                login
                             </Button>
                         )}
-                        {!isLoggedIn && (
-                            <Button variant="outline-primary" onClick={OnclickLogin} style={{marginLeft: '15px'}}>
-                                Login
+                        {isLoggedIn && (
+                            <Button variant="outline-primary" onClick={handleLogout} style={{marginLeft: '15px'}}>
+                                logout
                             </Button>
                         )}
                     </div>
