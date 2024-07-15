@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import $ from "jquery";
 import BASE_URL from "../../../database/Config";
 import {Link} from "react-router-dom";
+import HandleNewsClick from "../../../utils/HandleNewsClick";
 function Cart(){
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -17,23 +18,21 @@ function Cart(){
             },
         });
     }, []);
-    // const leftData = data.filter(item => item.cateId === 1).slice(0,2);
-    // const rightData = data.filter(item => item.cateId === 3).slice(0, 4);
-    // const centerData = data.filter(item => item.cateId === 2).slice(0,1);
+
     return(
-        <MDBRow className='row-cols-1 row-cols-md-2 g-4' >
-            {data.filter(item => item.cateId === 2).slice(0,2).map((item)=>(
+        <MDBRow className='row-cols-1 row-cols-md-3 g-4' >
+            {data.filter(item => item.subId === 42).sort((a,b)=> b.id - a.id).slice(0,3).map((item)=>(
             <MDBCol key={item.id}>
-                <Link to={`/detail/${item.id}`} className="titelRight">
+                <Link to={`/detail/${item.id}`} className="titelRight" onClick={()=> HandleNewsClick(item.id)} style={{ textDecoration:'none', }}>
                 <MDBCard>
                     <MDBCardImage
                         src={item.img}
                         alt='...'
                         position='top'
-                    />
+                        style={{ width:'100%',height:'40vh' }} />
                     <MDBCardBody>
-                        <MDBCardTitle style={{ fontSize: '40px' }}>{item.titel}</MDBCardTitle>
-                        <MDBCardText className="truncate">
+                        <MDBCardTitle className="truncates" style={{ fontSize: '20px' }}>{item.titel}</MDBCardTitle>
+                        <MDBCardText className="truncates">
                             {item.content}
                         </MDBCardText>
                     </MDBCardBody>
@@ -41,7 +40,6 @@ function Cart(){
                 </Link>
             </MDBCol>
             ))}
-
         </MDBRow>
     )
 }

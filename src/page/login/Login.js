@@ -24,10 +24,6 @@ function Login() {
                 // navigate(-1);
                 window.history.go(-1);
                 // window.location.reload();
-
-
-
-
             } else {
                 alert(response.data.message);
             }

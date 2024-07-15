@@ -4,6 +4,8 @@ import { publicRouter} from './Router/Router';
 import Layout from "./page/layout/Layout";
 import React, { useEffect, useState } from "react";
 // import ProtectedRoute from "./Router/ProtectedRoute";
+import ScrollToTop from './Router/ScrollToTop'
+import {Switch} from "@mui/material";
 
 
 function App() {
@@ -13,7 +15,9 @@ function App() {
         setIsLoggedIn(loggedIn === 'true');
     }, []);
     return (
+
             <div className="App">
+                <div> <ScrollToTop /></div>
                 <Routes>
                     {publicRouter.map((route, index) => {
                         const Layouts = route.layout || Layout;
@@ -27,21 +31,7 @@ function App() {
                         );
                     })}
 
-                    {/*{protectedRouter.map((route, index) => {*/}
-                    {/*    const Layouts = route.layout || Layout;*/}
-                    {/*    const Page = route.component;*/}
-                    {/*    return (*/}
-                    {/*        <Route*/}
-                    {/*            key={index}*/}
-                    {/*            path={route.path}*/}
-                    {/*            element={*/}
-                    {/*                <ProtectedRoute>*/}
-                    {/*                    <Layouts><Page /></Layouts>*/}
-                    {/*                </ProtectedRoute>*/}
-                    {/*            }*/}
-                    {/*        />*/}
-                    {/*    );*/}
-                    {/*})}*/}
+
                 </Routes>
             </div>
     );

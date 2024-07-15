@@ -50,6 +50,7 @@
 }
 
 .seach {
+    margin-left: 80px;
     grid-area: seach;
     position: relative;
     display: flex;
@@ -109,15 +110,41 @@
     align-items: center;
     justify-content: center;
 }
+/* style.css */
 
+/* style.css */
+
+/* Phần chứa .city */
 .city {
-    margin: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column; /* Hiển thị các phần tử theo chiều dọc */
+}
+.his{
+    text-decoration: none;
+    color: black;
 }
 
-.city h5 {
-    font-size: 15px;
-    font-family: Arial;
+/* Phần chứa Lịch Sử Xem và div.time */
+.city-content {
+
+    /*display: flex;*/
+    align-items: center; /* Căn các phần tử theo chiều dọc */
+    gap: 10px; /* Tạo khoảng cách giữa các phần tử */
 }
+
+/* Phần chứa thời gian */
+.time {
+    display: flex;
+    gap: 5px; /* Tạo khoảng cách giữa các thẻ h5 trong .time */
+}
+
+/* Các thẻ h5 trong phần thời gian */
+.time h5 {
+    font-size: 13px;
+    margin: 0; /* Loại bỏ khoảng cách mặc định */
+}
+
 
 .history a{
     text-decoration: none;
@@ -136,6 +163,18 @@
 .box{
     width: 350px;
 
+}
+.sticky-container {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.sticky-container > * {
+    margin: 0;
+    padding: 0;
 }
 
 

@@ -5,7 +5,7 @@ exports.addComment = (req, res) => {
     if (!postId || !username || !userId || !comment) {
         return res.status(400).json({ success: false, message: 'Thông tin không hợp lệ' });
     }
-    const query = 'INSERT INTO comment (postId ,username, userId, comment,timed) VALUES (?, ?, ?, ?,?)';
+        const query = 'INSERT INTO comment (postId ,username, userId, comment,timed) VALUES (?, ?, ?, ?,?)';
     connection.query(query, [postId , username, userId, comment,timed], (error, results) => {
         if (error) {
             console.error('Lỗi khi thêm bình luận: ', error);
