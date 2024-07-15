@@ -4,7 +4,8 @@ import React, {useEffect, useState} from "react";
 import Image from "../../../img/InImage";
 import {Link} from "react-router-dom";
 import $ from "jquery";
-import BASE_URL from "../../../../database/Config"; // optional
+import BASE_URL from "../../../../database/Config";
+import HandleNewsClick from "../../../../utils/HandleNewsClick"; // optional
 
 function SeachBox({data, onClick}){
     const [seachBox, setSeachBox] = useState([]);
@@ -21,8 +22,8 @@ function SeachBox({data, onClick}){
         });
     }, []);
     return (
-        <div className="containerSeachBox">
-            <Link to={`/detail/${data.id}`} onClick={onClick} style={{ textDecoration: 'none' }}>
+        <div className="containerSeachBox" key={data.id}>
+            <Link to={`/detail/${data.id}`} onClick={() => {HandleNewsClick(data.id) ;onClick()} } style={{ textDecoration: 'none' }}>
                 <div className="titleSeachBox">
                     {/*../../../img/no-image.png" alt="Logo*/}
                     <Image className="acv" src={data.img}/>

@@ -1,73 +1,41 @@
-import {
-    MDBCard,
-    MDBCardImage,
-    MDBCardBody,
-    MDBCardTitle,
-    MDBCardText,
-    MDBCardFooter,
-    MDBRow,
-    MDBCol
-} from 'mdb-react-ui-kit';
+
+import {useEffect, useState} from "react";
+import $ from "jquery";
+import BASE_URL from "../../../database/Config";
+import HandleNewsClick from "../../../utils/HandleNewsClick";
+import {Link} from "react-router-dom";
 function CartNext(){
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        $.ajax({
+            url: `${BASE_URL}/detail`,
+            type: "GET",
+            success: function (response) {
+                setData(response);
+            },
+            error: function (error) {
+                console.error("Error fetching detail: ", error);
+            },
+        });
+    }, []);
+    const dataSport = data.sort((a,b)=> b.id - a.id).filter(item => item.cateId === 5).slice(0,4);
     return(
-        <MDBRow className='row-cols-1 row-cols-md-3 g-4' >
-            <MDBCol>
-                <MDBCard className='h-100'>
-                    <MDBCardImage
-                        src='https://mdbootstrap.com/img/new/standard/city/044.webp'
-                        alt='...'
-                        position='top'
-                    />
-                    <MDBCardBody>
-                        <MDBCardTitle>Card title</MDBCardTitle>
-                        <MDBCardText>
-                            This is a longer card with supporting text below as a natural lead-in to additional content.
-                            This content is a little bit longer.
-                        </MDBCardText>
-                    </MDBCardBody>
-                    <MDBCardFooter>
-                        <small className='text-muted'>Last updated 3 mins ago</small>
-                    </MDBCardFooter>
-                </MDBCard>
-            </MDBCol>
-            <MDBCol>
-                <MDBCard className='h-100'>
-                    <MDBCardImage
-                        src='https://mdbootstrap.com/img/new/standard/city/043.webp'
-                        alt='...'
-                        position='top'
-                    />
-                    <MDBCardBody>
-                        <MDBCardTitle>Card title</MDBCardTitle>
-                        <MDBCardText>
-                            This card has supporting text below as a natural lead-in to additional content.
-                        </MDBCardText>
-                    </MDBCardBody>
-                    <MDBCardFooter>
-                        <small className='text-muted'>Last updated 3 mins ago</small>
-                    </MDBCardFooter>
-                </MDBCard>
-            </MDBCol>
-            <MDBCol>
-                <MDBCard className='h-100'>
-                    <MDBCardImage
-                        src='https://mdbootstrap.com/img/new/standard/city/042.webp'
-                        alt='...'
-                        position='top'
-                    />
-                    <MDBCardBody>
-                        <MDBCardTitle>Card title</MDBCardTitle>
-                        <MDBCardText>
-                            This is a wider card with supporting text below as a natural lead-in to additional content. This
-                            card has even longer content than the first to show that equal height action.
-                        </MDBCardText>
-                    </MDBCardBody>
-                    <MDBCardFooter>
-                        <small className='text-muted'>Last updated 3 mins ago</small>
-                    </MDBCardFooter>
-                </MDBCard>
-            </MDBCol>
-        </MDBRow>
+        <div className="row row-cols-1 row-cols-md-4 g-4">
+            {dataSport.map((item)=> (
+                <div className="col">
+                    <Link to={`/detail/${item.id}`} style={{textDecoration: 'none'}} onClick={()=> HandleNewsClick(item.id)}>
+                    <div className="card" style={{height:'100%'}} >
+                        <img src={item.img} className="card-img-top " alt="Hollywood Sign on The Hill" style={{ height:'30vh'}}/>
+                        <div className="card-body">
+                            <h5 className="card-title">{item.titel}</h5>
+                            <p className="card-text truncates"  >{item.content}</p>
+                        </div>
+                      </div>
+                    </Link>
+                </div>
+            ))}
+
+        </div>
     )
 }
 export default CartNext;

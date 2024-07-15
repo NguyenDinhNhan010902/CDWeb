@@ -69,4 +69,55 @@ p {
 .header span {
     font-size: smaller;
 }
+.containernewss {
+
+    width: 800px;
+
+    margin: 50px auto;
+    border: 1px solid #ddd;display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+
+.related-news {
+
+    border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+  overflow: hidden;
+}
+
+.related-news img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    float: left;
+    margin-right: 15px;
+}
+
+.text-content {
+    overflow: hidden; /* Contain floated image */
+}
+
+.related-news h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.related-news p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.clear {
+    clear: both;
+}
+.relatedCon{
+    width: 600px;
+
+}
 

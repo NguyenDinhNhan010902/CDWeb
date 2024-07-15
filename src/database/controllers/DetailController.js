@@ -8,12 +8,12 @@ exports.getDetails = (req, res) => {
     }
     let query = 'SELECT * FROM detail WHERE ';
     let params = [];
-    if (subId) {
-        query += 'subId = ?';
-        params.push(subId);
-    } else if (cateId) {
+    if (cateId) {
         query += 'cateId = ?';
         params.push(cateId);
+    } else if (subId) {
+        query += 'subId = ?';
+        params.push(subId);
     }
 
     connection.query(query, params, (error, results) => {
@@ -24,6 +24,7 @@ exports.getDetails = (req, res) => {
         res.json(results);
     });
 };
+
 
 exports.getDetailById = (req, res) => {
     const id = req.params.id;
@@ -72,4 +73,45 @@ exports.getDetailes =  (req, res) => {
         }
         res.json(results);
     });
+};
+exports.getDetailNew =  (req, res) => {
+    const cateId = req.query.cateId;
+    const subId = req.query.subId;
+    connection.query('SELECT * FROM detail WHERE cateId= ? AND subId = ?',[cateId, subId] ,(error, results, fields) => {
+        if (error) throw error;
+        res.send(results);
+    });
+};
+exports.addHistory = (req, res) => {
+    const { newsId,userId } = req.body;
+    const query = 'INSERT INTO history (news_id,user_id) VALUES (?,?)';
+    connection.query(query, [newsId,userId], (error, results) => {
+        if (error) {
+            console.error('Error adding news to history:', error);
+            res.status(500).json({ success: false, message: 'Failed to add news to history' });
+        } else {
+            console.log('News added to history');
+            res.status(200).json({ success: true, message: 'News added to history' });
+        }
+    });
+};
+exports.getHistory = (req, res) => {
+    const userid = req.query.user_id; // Lấy userId từ yêu cầu
+    // Sử dụng prepared statement với dấu ? và truyền giá trị tham số như là một mảng
+    connection.query(
+        'SELECT history.id, detail.id as newid, detail.img, detail.titel, detail.content, history.user_id ' +
+        'FROM history ' +
+        'INNER JOIN detail ON detail.id = history.news_id ' +
+        'INNER JOIN users ON history.user_id = users.id ' +
+        'WHERE history.user_id = ?',
+        [userid], // Truyền giá trị của userId vào đây
+        (error, results, fields) => {
+            if (error) {
+                console.error('Error fetching user history:', error);
+                res.status(500).json({ success: false, message: 'Failed to fetch user history' });
+            } else {
+                res.status(200).json(results);
+            }
+        }
+    );
 };

@@ -4,6 +4,8 @@ import BASE_URL from '../../../database/Config';
 import Nav from 'react-bootstrap/Nav';
 import './style.css';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
 function Category() {
     const [danhMuc, setDanhMuc] = useState([]);
     useEffect(() => {
@@ -31,10 +33,15 @@ function Category() {
         );
     };
     return (
-        <div className="container">
-            <Nav className="justify-content-center">
+        <div className="container" >
+            <Nav className="justify-content-center" >
+                <div style={{background:'red',width:'0px', marginRight:'30px'}} >
+                    <Link to="/home">
+                        <FontAwesomeIcon icon={faHouse} style={{color:'black',marginTop:'10px', float: 'left',fontSize:'20px'}} />
+                    </Link>
+                </div>
                 {danhMuc.map((item) => (
-                    <Nav.Item key={item.id}>
+                    <Nav.Item key={item.id} style={{fontFamily:'bold'}}>
                         <Nav.Link
                             as={Link}
                             to={item.id === 0 ? "/home" : `/listcategory/${item.id}`}

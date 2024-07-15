@@ -1,6 +1,10 @@
+.container{
+    margin-top: 20px;
+}
 .home{
     display: flex;
     justify-content: space-between;
+
     /*background-color: aqua;*/
 }
 
@@ -35,6 +39,8 @@
 .right{
     display: flex;
     flex-direction: column;
+    gap: 10px;
+
     /*align-items: center;*/
     width: 25%;
     height: 100%;
@@ -43,8 +49,8 @@
 
 }
 .right img{
-    height: 80px;
-    max-width : 80%;
+    width: 120px; /* Đặt kích thước cố định cho hình ảnh */
+    height: 90px; /* Đảm bảo tỉ lệ hình ảnh không bị méo */
 }
 .rightItem{
     width: 100%;
@@ -58,6 +64,8 @@
     margin-top: 20px;
 }
 .imgCenter{
+    width: 100%;
+    height: 100%;
     margin:10px 0;
 }
 .imgLeft{
@@ -79,23 +87,26 @@
     color: black;
     font-family: bold;
 }
-.truncate {
+.truncates {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
     font-size: 15px;
+
 }
 .imgRight{
-    width: 500px;
+    width:500px;
     height: 120px;
 }
 .titelRight{
+    flex: 1;
     text-decoration: none;
     color: black;
     font-family: bold;
 }
 .titelRight h3{
+    text-align: left;
     font-size: 20px;
 }
 .newsLeft{
@@ -191,8 +202,8 @@
 }
 
 .subImg {
-    width: 100%;
-    height: auto;
+    width: 100px;
+    height: 2px;
 }
 
 .subTitle {
@@ -207,5 +218,23 @@
 .cardnext{
     margin-top: 30px;
     margin-bottom: 30px;
+}
+.noibat{
+    font-size: 30px;
+    margin: 20px 20px;
+    font-family: fantasy;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #000000;
+}
+.titelTruncates{
+    color: black;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    font-size: 20px;
+
 }
 

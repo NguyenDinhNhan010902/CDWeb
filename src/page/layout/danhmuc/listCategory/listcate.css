@@ -4,3 +4,32 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
 }
+/* listcate.css */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.mb-4 {
+    margin-bottom: 20px;
+}
+
+.his {
+    text-decoration: none;
+    color: inherit;
+}
+
+.subTitleCate {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
